@@ -849,16 +849,19 @@ transform: translate(0);
   right: 0;
 
   background: rgba(46, 47, 66, 0.4);
+  transition: opacity 200ms var(--animation);
 }
-.is-hidden {
+.backdrop.is-hidden {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
 }
 .modal {
   position: absolute;
-  top: calc(50% - 288px);
-  left: calc(50% - 204px);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
 
   width: 408px;
   min-height: 576px;
@@ -868,6 +871,11 @@ transform: translate(0);
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+
+  transition: opacity 200ms var(--animation);
+}
+.backdrop.is-hidden {
+  opacity: 0;
 }
 .modal-button {
   display: block;
@@ -880,6 +888,13 @@ transform: translate(0);
   border: 1px solid rgba(0, 0, 0, 0.1);
 
   cursor: pointer;
+  transition: var(--animation);
+}
+.modal-button:hover,
+.modal-button:focus {
+  color: var(--white-color);
+  background-color: var(--alternative-color);
 }
 .modal-icon {
+fill: currentColor;
 }

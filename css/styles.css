@@ -169,7 +169,7 @@ button {
 .nav-link::after {
   content: "";
   position: absolute;
-  bottom: 0;
+  bottom: -1px;
   left: 0;
 
   display: block;
@@ -281,7 +281,7 @@ button {
   background: var(--main-color);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 
-  transition: color var(--animation);
+  transition: background-color var(--animation);
 }
 .hero-button:hover,
 .hero-button:focus {
@@ -498,7 +498,7 @@ button {
   border-radius: 4px;
   color: #8e8f99;
 
-  transition: color var(--animation);
+  transition: color var(--animation), border-color var(--animation);
 }
 .clients-link:hover,
 .clients-link:focus {
@@ -593,7 +593,7 @@ button {
   background-color: var(--main-color);
   border-radius: 50%;
 
-  transition: color var(--animation);
+  transition: background-color var(--animation);
 }
 
 .link-sm:hover,
@@ -664,22 +664,6 @@ button {
 .nav-list .item:last-child {
   margin-right: 0;
 }
-
-.nav-link {
-  display: block;
-  padding-top: 24px;
-  padding-bottom: 24px;
-  gap: 40px;
-  align-items: center;
-
-  color: var(--primary-color);
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.02em;
-
-  transition: color var(--animation);
-}
 .nav-link:hover,
 .nav-link:focus {
   color: var(--alternative-color);
@@ -697,10 +681,6 @@ button {
 
 .address {
   font-style: normal;
-}
-
-.contact {
-  transition: color var(--animation);
 }
 
 .contact:hover,
@@ -743,12 +723,12 @@ button {
   line-height: 1.5;
   letter-spacing: 0.04em;
 
-  transition: color var(--animation);
+  transition: color var(--animation), background-color var(--animation), border var(--animation), box-shadow var(--animation) ;
 }
 .button:hover,
 .button:focus {
   color: var(--white-color);
-  background: var(--alternative-color);
+  background-color: var(--alternative-color);
   border: 1px solid transparent;
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
@@ -777,7 +757,8 @@ button {
   transition: transform var(--animation);
 }
 
-.project-item:hover .overlay {
+.project-link:hover .overlay,
+.project-link:focus .overlay {
 transform: translate(0);
 }
 .overlay-label {
@@ -803,7 +784,7 @@ transform: translate(0);
 .project-link {
   display: block;
 
-  transition: color var(--animation);
+  transition: box-shadow var(--animation);
 }
 
 .project-link:hover,
@@ -872,23 +853,26 @@ transform: translate(0);
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
 
-  transition: opacity 200ms var(--animation);
-}
-.backdrop.is-hidden {
-  opacity: 0;
+  transition: opacity 400ms var(--animation), visibility 400ms var(--animation) ;
 }
 .modal-button {
-  display: block;
+  position: absolute;
   margin-left: auto;
   width: 24px;
   height: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 24px;
+  right: 24px;
 
   background: #e7e9fc;
   border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.1);
 
   cursor: pointer;
-  transition: var(--animation);
+  transition: color var(--animation), background-color var(--animation);
 }
 .modal-button:hover,
 .modal-button:focus {
